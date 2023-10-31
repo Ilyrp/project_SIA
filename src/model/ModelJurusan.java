@@ -36,4 +36,13 @@ public void updateJurusan (String nama_jurusan, String new_fakultas){
             }
         }
     }
+
+    public String searchJurusan(String nama_jurusan){
+         for (int i = 0; i < departmens.size(); i++) {
+            if (nama_jurusan.equals(departmens.get(i).getNama_jurusan())) {
+                return departmens.get(i).getNama_jurusan();
+            }
+        }
+        return nama_jurusan;
+    }
 }

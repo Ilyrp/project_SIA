@@ -1,28 +1,34 @@
 package node;
 
-public class NodeDoswal {
+public class NodeDoswal extends NodeWaliMahasiswa {
     String nip;
-    String namaDoswal;
-    String kewarganegaraan;
-    String NoTelp;
+    // String nama;
+    // String kewarganegaraan;
+    // String NoTelp;
     NodeJurusan jurusan;
 
-    public NodeDoswal (String nip, String namaDoswal, String kewarganegaraan,String NoTelp) {
+    // bikin class baaru isinya nama,no telp,kewarganegaraan
+
+  
+
+    public NodeDoswal (String nip, String nama, String kewarganegaraan,String NoTelp) {
+        super(nama, kewarganegaraan, NoTelp);
         this.nip = nip;
-        this.NoTelp = NoTelp;
-        this.namaDoswal = namaDoswal;
-        this.kewarganegaraan = kewarganegaraan;
+        // this.NoTelp = NoTelp;
+        // this.nama = nama;
+        // this.kewarganegaraan = kewarganegaraan;
     }
 
     public void viewDosen() {
         System.out.println("NIP  : " + this.nip);
-        System.out.println("Nama : " + this.namaDoswal);
+        System.out.println("Nama : " + this.nama);
         System.out.println("Kewarganegaraan : " + this.kewarganegaraan);
         System.out.println("Nomer Telepon :"+this.NoTelp);
     }
 
     public String getNama_Doswal() {
-        return namaDoswal;
+        return nama;
+        
     }
 
     public void setNoTelpDoswal(String noTelp) {
@@ -30,5 +36,5 @@ public class NodeDoswal {
     }
 
 // public void setNama_Mahasiswa(String nama_Mahasiswa) { 
-//     this.namaDoswal = nama_fakultas;
+//     this.nama = nama_fakultas;
 }

@@ -9,8 +9,8 @@ public class ModelMahasiswa {
         this.Students = new ArrayList<>();
     }
 
-public void insertMahasiswa (String nama, String kewarganegaraan, String telp) {
-    this.Students.add(new NodeMahasiswa(nama, kewarganegaraan, telp)); }
+public void insertMahasiswa (String npm,String nama, String kewarganegaraan, String telp,boolean her) {
+    this.Students.add(new NodeMahasiswa(npm, nama, kewarganegaraan, telp,her)); }
 
     public void viewAllMahasiswa() {
         for (int i = 0; i < Students.size(); i++) {

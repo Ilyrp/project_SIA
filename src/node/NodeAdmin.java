@@ -9,15 +9,16 @@ public class NodeAdmin {
         this.Password = Password;
     }
 
-    // public void viewMahasiswa() {
-    //     System.out.println("NPM  : " + this.npm);
-    //     System.out.println("Nama : " + this.namaMahasiswa);
-    //     System.out.println("Kewarganegaraan : " + this.kewarganegaraan);
-    //     System.out.println("Nomer Telepon :"+this.NoTelp);
-    // }
-
+    public void viewAdmin() {
+        System.out.println("Username :"+this.Username);
+        System.out.println("Password :"+this.Password);
+    }
     public String getUsername() {
         return Username;
+    }
+
+    public String getPassword() {
+        return Password;
     }
 
     public void setPassword(String Password) {

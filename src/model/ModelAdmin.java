@@ -9,15 +9,15 @@ public class ModelAdmin {
         this.Admin = new ArrayList<>();
     }
 
-public void insertMahasiswa (String Username, String Password) {
+public void insertAdmin (String Username, String Password) {
     this.Admin.add(new NodeAdmin(Username, Password)); }
 
-    // public void viewAllMahasiswa() {
-    //     for (int i = 0; i < Admin.size(); i++) {
-    //         this.Admin.get(i).viewMahasiswa();
-    //         System.out.println(" -");
-    //     }
-    // }
+    public void viewAllAdmin() {
+        for (int i = 0; i < Admin.size(); i++) {
+            this.Admin.get(i).viewAdmin();
+            System.out.println(" -");
+        }
+    }
 
 public void updatePassword (String Username,String Password){
      for (int i = 0; i <Admin.size();i++){
@@ -33,6 +33,14 @@ public void updatePassword (String Username,String Password){
                 Admin.remove(i);
             }
         }
+    }
+
+    public String getUsername(){
+        return getUsername();
+    }
+
+    public String getPassword(){
+        return getPassword();
     }
 }
 

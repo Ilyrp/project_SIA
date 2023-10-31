@@ -12,13 +12,13 @@ public class ModelDoswal {
         this.dosWal = new ArrayList<>();
     }
 
-public void insertJurusan (String nip, String namaDosen, String kewarganegaraan, String NoTelp) {
+public void insertDoswal (String nip, String namaDosen, String kewarganegaraan, String NoTelp) {
     this.dosWal.add(new NodeDoswal (nip, namaDosen, kewarganegaraan, NoTelp)); }
 
     public void viewAllDosen() {
         for (int i = 0; i < dosWal.size(); i++) {
             this.dosWal.get(i).viewDosen();
-            System.out.println(" -");
+            // System.out.println(" -");
         }
     }
 

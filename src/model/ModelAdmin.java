@@ -27,7 +27,7 @@ public void updatePassword (String Username,String Password){
     }
 }
 
-    public void deleteMahasiswa(String nama) {
+    public void deleteAdmin(String nama) {
         for (int i = 0; i < Admin.size(); i++) {
             if (nama.equals(Admin.get(i).getUsername())) {
                 Admin.remove(i);

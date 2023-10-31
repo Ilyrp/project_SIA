@@ -14,7 +14,7 @@ public class NodeDoswal {
         this.kewarganegaraan = kewarganegaraan;
     }
 
-    public void viewMahasiswa() {
+    public void viewDosen() {
         System.out.println("NIP  : " + this.nip);
         System.out.println("Nama : " + this.namaDoswal);
         System.out.println("Kewarganegaraan : " + this.kewarganegaraan);

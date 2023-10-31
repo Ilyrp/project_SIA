@@ -1,6 +1,8 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.jar.Attributes.Name;
+
 import node.NodeDoswal;
 
 public class ModelDoswal {
@@ -10,28 +12,27 @@ public class ModelDoswal {
         this.dosWal = new ArrayList<>();
     }
 
-public void insertJurusan (String nama, String fakultas) {
-    int index = dosWal.size();
-    this.dosWal.add(new NodeDoswal (index+1, nama, fakultas)); }
+public void insertJurusan (String nip, String namaDosen, String kewarganegaraan, String NoTelp) {
+    this.dosWal.add(new NodeDoswal (nip, namaDosen, kewarganegaraan, NoTelp)); }
 
-    public void viewAllJurusan() {
+    public void viewAllDosen() {
         for (int i = 0; i < dosWal.size(); i++) {
-            this.dosWal.get(i).viewJurusan();
+            this.dosWal.get(i).viewDosen();
             System.out.println(" -");
         }
     }
 
-public void updateJurusan (String nama_jurusan, String new_fakultas){
+public void updateNoTelpDoswal (String namaDoswal,String NoTelp){
      for (int i = 0; i <dosWal.size();i++){
-        if (nama_jurusan.equals(dosWal.get(i).getNama_jurusan())){
-            dosWal.get(i).setNama_fakultas (new_fakultas);
+        if (namaDoswal.equals(dosWal.get(i).getNama_Doswal())){
+            dosWal.get(i).setNoTelpDoswal(NoTelp);
         }
     }
 }
 
-    public void deleteJurusan(String nama_jurusan) {
+    public void deleteDosen(String namaDoswal) {
         for (int i = 0; i < dosWal.size(); i++) {
-            if (nama_jurusan.equals(dosWal.get(i).getNama_jurusan())) {
+            if (namaDoswal.equals(dosWal.get(i).getNama_Doswal())) {
                 dosWal.remove(i);
             }
         }

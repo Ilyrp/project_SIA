@@ -9,8 +9,8 @@ public class ModelAdmin {
         this.Admin = new ArrayList<>();
     }
 
-public void insertAdmin (String Username, String Password) {
-    this.Admin.add(new NodeAdmin(Username, Password)); }
+    public void insertAdmin (String Username, String Password) {
+        this.Admin.add(new NodeAdmin(Username, Password)); }
 
     public void viewAllAdmin() {
         for (int i = 0; i < Admin.size(); i++) {
@@ -19,13 +19,13 @@ public void insertAdmin (String Username, String Password) {
         }
     }
 
-public void updatePassword (String Username,String Password){
-     for (int i = 0; i <Admin.size();i++){
-        if (Username.equals(Admin.get(i).getUsername())){
-            Admin.get(i).setPassword(Password);
+    public void updatePassword (String Username,String Password){
+        for (int i = 0; i <Admin.size();i++){
+            if (Username.equals(Admin.get(i).getUsername())){
+                Admin.get(i).setPassword(Password);
+            }
         }
     }
-}
 
     public void deleteAdmin(String nama) {
         for (int i = 0; i < Admin.size(); i++) {
@@ -35,13 +35,23 @@ public void updatePassword (String Username,String Password){
         }
     }
 
-    public String getUsername(){
-        return getUsername();
+    public void searchAdmin(String Username, String Password) {
+        for (int i = 0; i < Admin.size(); i++) {
+            if (Username.equals(Admin.get(i).getUsername()) && Password.equals(Admin.get(i).getPassword())) {
+                Admin.get(i).viewAdmin();
+            }
+        }
     }
 
-    public String getPassword(){
-        return getPassword();
+    public boolean validateAdmin(String Username, String Password) {
+        for (int i = 0; i < Admin.size(); i++) {
+            if (Username.equals(Admin.get(i).getUsername()) && Password.equals(Admin.get(i).getPassword())) {
+                return true;
+            }
+        }
+        return false;
     }
 }
+
 
 

@@ -21,6 +21,7 @@ public class NodeMahasiswa extends NodeWaliMahasiswa {
         System.out.println("Nama : " + this.nama);
         System.out.println("Alamat : " + this.alamat);
         System.out.println("Nomer Telepon :"+this.NoTelp);
+        System.out.println("Jurusan : " + this.jurusan);
     }
 
     public void setNpm(String npm){
@@ -37,7 +38,9 @@ public class NodeMahasiswa extends NodeWaliMahasiswa {
     public void waliMahasiswa(String nama,String alamat,String NoTelp){        
     }
 
-   
+   public void setNoTelp_Mahasiswa(String NoTelp){
+       this.NoTelp = NoTelp;
+   }
 
     public String getNpm_Mahasiswa(){
         return npm;

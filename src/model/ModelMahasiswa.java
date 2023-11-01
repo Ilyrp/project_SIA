@@ -7,7 +7,7 @@ import node.NodeMahasiswa;
 // import model.ModelJurusan;
 
 public class ModelMahasiswa {
-    String indexNpm = "00000";
+    String indexNpm = String.format("%04d", 0);
     ArrayList<NodeMahasiswa> Students;
 
     public ModelMahasiswa() {
@@ -20,6 +20,7 @@ public class ModelMahasiswa {
     public void viewMahasiswaBy(String npm){
         for (int i = 0; i<Students.size();i++){
             if (npm.equals(Students.get(i).getNpm_Mahasiswa())){
+                System.out.println("Found matching npm: " + npm);
                 Students.get(i).viewMahasiswa();
             }
         }
@@ -60,7 +61,7 @@ public class ModelMahasiswa {
 
     public void updateMahasiswa(String npm,String newNama, String newAlamat, String newTelp,String newJurusan) {
         for (int i = 0; i < Students.size(); i++) {
-            if (npm.equals(Students.get(i).getNama())) {
+            if (npm.equals(Students.get(i).getNpm_Mahasiswa())) {
                 if (!newNama.equals("-")) {
                     Students.get(i).setNama(newNama);
                 }

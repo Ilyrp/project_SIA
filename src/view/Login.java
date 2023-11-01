@@ -12,9 +12,10 @@ public class Login {
     
     public static boolean login(){
     while (true) {  
-        System.out.println("Pilih Menu");
-        System.out.println("1. Admin");
-        System.out.println("2. SekJur");
+        System.out.println("Pilih Menu Login");
+        System.out.println("1. Menu Admin");
+        System.out.println("2. Menu SekJur");
+        System.out.print("Masukkan Pilihan : ");
         int pilih = input.nextInt();
         input.nextLine();
         System.out.println("Masukkan Username : ");

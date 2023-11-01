@@ -14,6 +14,8 @@ public class NodeDosen extends NodeWaliMahasiswa {
         System.out.println("Nama : " + this.nama);
         System.out.println("Alamat : " + this.alamat);
         System.out.println("Nomer Telepon :"+this.NoTelp);
+        // System.out.println("Jurusan : " + this.jurusan.getJurusan());
+
     }
     
     public void setJurusan(NodeJurusan jurusan){

@@ -22,15 +22,6 @@ public void insertDosen (int nip, String nama, String alamat, String NoTelp) {
         }
     }
 
-// public void updateNoTelpdosen (String namadosen,String NoTelp){
-//      for (int i = 0; i <dosen.size();i++){
-//         if (namadosen.equals(dosen.get(i).getNama())){
-            
-//             dosen.get(i).setNoTelp(NoTelp);
-//         }
-//     }
-// }
-
     public void deleteDosen(String namadosen) {
         for (int i = 0; i < dosen.size(); i++) {
             if (namadosen.equals(dosen.get(i).getNama())) {

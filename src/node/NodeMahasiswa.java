@@ -1,25 +1,40 @@
 package node;
 import node.NodeWaliMahasiswa;
+import node.NodeJurusan;
+
 public class NodeMahasiswa extends NodeWaliMahasiswa {
     String npm;
     // String nama;
     // String kewarganegaraan;
     // String NoTelp;
-    boolean her;
+    boolean her = false;
     NodeWaliMahasiswa waliMahasiswa;
+    NodeJurusan jurusan;
 
-    public NodeMahasiswa(String npm, String nama, String kewarganegaraan,String NoTelp,boolean her) {
+    public NodeMahasiswa(String nama, String kewarganegaraan,String NoTelp,boolean her) {
         super(nama, kewarganegaraan, NoTelp);
-        this.npm = npm;
         // this.nama = nama;
         // this.kewarganegaraan = kewarganegaraan;
         // this.NoTelp = NoTelp;
         this.her = her;
-        NodeWaliMahasiswa wm = new NodeWaliMahasiswa(nama,kewarganegaraan,NoTelp);
-        this.waliMahasiswa = wm;
+        // NodeWaliMahasiswa wm = new NodeWaliMahasiswa(nama,kewarganegaraan,NoTelp);
+        // this.waliMahasiswa = wm;
+    }
+
+    public void setNpm(String npm){
+        this.npm = npm;
+    }
+
+    public void setHer(boolean her){
+        this.her = her;
     }
 
     public void waliMahasiswa(String nama,String kewarganegaraan,String NoTelp){
+        
+    }
+
+    public void setJurusan(NodeJurusan jurusan){
+        this.jurusan = jurusan;
     }
 
     public void viewMahasiswa() {
@@ -41,5 +56,4 @@ public class NodeMahasiswa extends NodeWaliMahasiswa {
 // public void setNama_Mahasiswa(String nama_Mahasiswa) { 
 //     this.nama = nama_fakultas;
 }
-
 

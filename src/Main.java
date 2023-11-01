@@ -3,6 +3,7 @@ import model.ModelAdmin;
 import model.ModelDoswal;
 import model.ModelJurusan;
 import model.ModelMahasiswa;
+import node.NodeJurusan;
 
 
 public class Main {
@@ -13,9 +14,9 @@ public class Main {
         admin1.viewAllAdmin();
 
         ModelMahasiswa mahasiswa1 = new ModelMahasiswa();
-        mahasiswa1.insertMahasiswa("1234", "Franky", "Indonesia", "08123456789", true);
+        mahasiswa1.insertMahasiswa( "Franky", "Indonesia", "08123456789",true);
         mahasiswa1.viewAllMahasiswa();
-        mahasiswa1.insertMahasiswa("345", "Fika", "Indonesia", "23456789", true);
+        mahasiswa1.insertMahasiswa( "Fika", "Indonesia", "23456789",true);
         mahasiswa1.viewAllMahasiswa();
 
        ModelJurusan jurusan = new ModelJurusan();
@@ -29,7 +30,13 @@ public class Main {
 
     //    Menu menu = new Menu();
         System.out.println(admin1.validateAdmin("Calosa","1234"));
+        NodeJurusan jur = jurusan.getJurusan("01");
+        mahasiswa1.updateNpm("Franky");
+        mahasiswa1.updateNpm("Fika");
+        mahasiswa1.viewAllMahasiswa();
+        mahasiswa1.setJur("Franky", jur);
     }
+
 }
 
 /*

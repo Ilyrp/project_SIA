@@ -2,6 +2,9 @@ package view;
 
 import java.util.Scanner;
 
+import controller.User;
+import model.ModelAdmin;
+import model.ModelDosen;
 import model.ModelMahasiswa;
 
 public class Dashboard {
@@ -28,20 +31,21 @@ public class Dashboard {
                     
                     System.out.print("Masukkan Nama Pendaftar : ");
                     String namaPendaftar = input.nextLine();
-                    System.out.print("Masukkan Jurusan : ");
-                    System.out.print("Masukkan Kewarganegaraan : ");
-                    String kewarganegaraan = input.nextLine();
+                    // System.out.print("Masukkan Jurusan : ");
+                    // selector
+                    System.out.print("Masukkan alamat : ");
+                    String alamat = input.nextLine();
                     System.out.print("Masukkan Nomer Telepon : ");
                     String noTelepon = input.nextLine();
+                    input.nextLine();
                     System.out.println("Wali Mahasiswa : ");
                     System.out.print("Masukkan Nama Wali : ");
-                    System.out.print("Masukkan Kewarganegaraan Wali : ");
+                    String namaWali = input.nextLine();
+                    System.out.print("Masukkan alamat Wali : ");
+                    String alamatWali = input.nextLine();
                     System.out.print("Masukkan Nomer Telepon Wali : ");
-                    mahasiswa.insertMahasiswa(namaPendaftar, kewarganegaraan, noTelepon, false);
-                    mahasiswa.insertMahasiswa("Ilyasa", "kewarganegaraan", "noTelepon", false);
-                    mahasiswa.updateNpm("Ilyasa");
-                    mahasiswa.insertMahasiswa("andi", "kewarganegaraan", "noTelepon", false);
-                    mahasiswa.updateNpm("andi");
+                    String noTelponWali = input.nextLine();
+                    mahasiswa.insertMahasiswa(namaPendaftar, alamat, noTelepon);
                     mahasiswa.viewAllMahasiswa();
                     break;
                 case 2:
@@ -50,15 +54,22 @@ public class Dashboard {
                     System.out.println("1. Tambah Dosen");
                     System.out.println("2. Update Data Dosen");
                     System.out.println("3. Hapus Data Dosen");
+                    System.out.println("4. View All Dosen");
+                    System.out.println("5. View By NIP");
                     System.out.println("4. Kembali");
                             pilih = input.nextInt();
                             switch (pilih) {
                                 case 1:
                                     System.out.println("Masukkan NIP Dosen : ");
+                                    int nip = input.nextInt();
                                     System.out.println("Masukkan Nama Dosen : ");
+                                    String namaDosen = input.nextLine();
                                     System.out.println("Masukkan Kewarganegaraan Dosen : ");
+                                    String kewarganegaraanDosen = input.nextLine();
                                     System.out.println("Masukkan Nomer Telepon Dosen : ");
+                                    String noTelpDosen = input.nextLine();
                                     System.out.println("Masukkan Jurusan Dosen");
+                                    User.dosen.insertDosen(nip, namaDosen, kewarganegaraanDosen, noTelpDosen);
                                     break;
                                 case 2:
                                 System.out.println("Update Data Dosen");
@@ -66,6 +77,13 @@ public class Dashboard {
                                 case 3:
                                 System.out.println("Hapus Data Dosen");
                                     System.out.println("Masukkan NIP dosen");
+                                    String namadosen = input.nextLine();
+                                    User.dosen.deleteDosen(namadosen);
+                                    break;
+                                case 4:
+                                    System.out.println("Masukkan Nip Dosen Yang Ingin Dihilat");
+                                    nip = input.nextInt();
+                                    User.dosen.viewDosenBy(nip); 
                                 
                                 default:
                                     break;
@@ -83,13 +101,20 @@ public class Dashboard {
                                 System.out.println("4. Kembali");
                             switch (pilih) {
                                 case 1:
-                                    System.out.println("1. Tambah Jurusan");
+                                    System.out.println("Masukkan Nama Jurusan : ");
+                                    String namaJurusan = input.nextLine();
+                                    System.out.println("Masukkan Fakultas Jurusan : ");
+                                    String fakultasJurusan = input.nextLine();
+                                    User.jurusan.insertJurusan(namaJurusan, fakultasJurusan);
                                     break;
                                 case 2:
                                     System.out.println("2. Update Jurusan");
                                     break;
                                 case 3:
-                                    System.out.println("3. Hapus Jurusan");
+                                    System.out.println("Masukkan Jurusan yang ingin dihapus : ");
+                                    String jurusan = input.nextLine();
+                                    User.jurusan.deleteJurusan(jurusan);
+
                                 case 4:
                                     System.out.println("4. Kemabali");
                                 default:

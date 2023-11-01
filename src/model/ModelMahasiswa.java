@@ -12,8 +12,8 @@ public class ModelMahasiswa {
     public ModelMahasiswa() {
         this.Students = new ArrayList<>();
     }
-    public void insertMahasiswa (String nama, String kewarganegaraan, String telp, boolean her) {
-        this.Students.add(new NodeMahasiswa(nama, kewarganegaraan, telp, her)); 
+    public void insertMahasiswa (String nama, String alamat, String telp) {
+        this.Students.add(new NodeMahasiswa(nama, alamat, telp)); 
     }
 
     public void viewAllMahasiswa() {
@@ -22,13 +22,7 @@ public class ModelMahasiswa {
             System.out.println(" -");
         }
     }
-    public void updateHer (String nama, boolean her){
-         for (int i = 0; i <Students.size();i++){
-            if (nama.equals(Students.get(i).getNama_Mahasiswa())){
-                Students.get(i).setHer(her);
-            }
-        }
-    }
+
     public void updateNpm (String nama){
         for (int i = 0; i <Students.size();i++){
             if (nama.equals(Students.get(i).getNama_Mahasiswa())){

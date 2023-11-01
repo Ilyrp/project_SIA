@@ -1,6 +1,7 @@
 package controller;
 // import controller.Menu;
 import model.ModelAdmin;
+import model.ModelDosen;
 import model.ModelJurusan;
 import model.ModelMahasiswa;
 // import model.ModelDoswal;
@@ -15,12 +16,14 @@ public class User {
     public static ModelAdmin admin = new ModelAdmin(); 
     public static ModelMahasiswa mahasiswa = new ModelMahasiswa(); 
     public static ModelJurusan jurusan = new ModelJurusan();
+    public static ModelDosen dosen = new ModelDosen();
+    
     public void ya(){
         
         admin.insertAdmin("Calosa", "1234");
         admin.insertAdmin("y", "y");
 
-        mahasiswa.insertMahasiswa("Budi","indon", "23", false);
+        mahasiswa.insertMahasiswa("Budi","indon", "23");
 
         jurusan.insertJurusan("Teknik Informatika", "FTETI");
         jurusan.insertJurusan("Teknik Elektro", "FTETI");

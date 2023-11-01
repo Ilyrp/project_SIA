@@ -37,4 +37,16 @@ public void updateNoTelpdosen (String namadosen,String NoTelp){
             }
         }
     }
+
+
+
+    public void viewDosenBy(int nip){
+        for (int i = 0; i<dosen.size();i++){
+            if (nip == dosen.get(i).getNip_Dosen()){
+                dosen.get(i).viewDosen();
+            }
+        }
+    }
+
+
 }

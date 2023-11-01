@@ -13,16 +13,18 @@ public class NodeAdmin {
         System.out.println("Username :"+this.Username);
         System.out.println("Password :"+this.Password);
     }
+
+    
+    public void setPassword(String Password) {
+        this.Password = Password;
+    }
+
     public String getUsername() {
         return Username;
     }
 
     public String getPassword() {
         return Password;
-    }
-
-    public void setPassword(String Password) {
-        this.Password = Password;
     }
 
 }

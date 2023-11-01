@@ -1,6 +1,6 @@
 package node;
-import node.NodeWaliMahasiswa;
-import node.NodeJurusan;
+// import node.NodeWaliMahasiswa;
+// import node.NodeJurusan;
 
 public class NodeMahasiswa extends NodeWaliMahasiswa {
     String npm;
@@ -16,18 +16,6 @@ public class NodeMahasiswa extends NodeWaliMahasiswa {
         // this.waliMahasiswa = wm;
     }
 
-    public void setNpm(String npm){
-        this.npm = npm;
-    }
-
-    public void waliMahasiswa(String nama,String alamat,String NoTelp){
-        
-    }
-
-    public void setJurusan(NodeJurusan jurusan){
-        this.jurusan = jurusan;
-    }
-
     public void viewMahasiswa() {
         System.out.println("NPM  : " + this.npm);
         System.out.println("Nama : " + this.nama);
@@ -35,19 +23,28 @@ public class NodeMahasiswa extends NodeWaliMahasiswa {
         System.out.println("Nomer Telepon :"+this.NoTelp);
     }
 
-    public String getNama_Mahasiswa() {
-        return nama;
+    public void setNpm(String npm){
+        this.npm = npm;
     }
 
-    public void setNoTelpMahasiswa(String noTelp) {
-        this.NoTelp = noTelp;
+    public void setJurusan(NodeJurusan jurusan){
+        this.jurusan = jurusan;
+    }
+    
+    
+// belum di set
+
+    public void waliMahasiswa(String nama,String alamat,String NoTelp){        
+    }
+
+   
+
+    public String getNpm_Mahasiswa(){
+        return npm;
     }
 
 
-    public void updateMahasiswa(){
-        
-    }
-// public void setNama_Mahasiswa(String nama_Mahasiswa) { 
-//     this.nama = nama_fakultas;
+
+
 }
 

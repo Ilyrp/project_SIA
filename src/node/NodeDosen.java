@@ -2,20 +2,11 @@ package node;
 
 public class NodeDosen extends NodeWaliMahasiswa {
     int nip;
-    NodeWaliMahasiswa nodeDosen;
+    NodeJurusan jurusan;
 
     public NodeDosen(int nip, String nama, String alamat,String NoTelp) {
         super(nama, alamat, NoTelp);
         this.nip = nip;
-        // this.nama = nama;
-        // this.alamat = alamat;
-        // this.NoTelp = NoTelp;
-
-        NodeWaliMahasiswa dosen = new NodeDosen(nip,nama,alamat,NoTelp);
-        this.nodeDosen = dosen ;
-    }
-
-    public void waliMahasiswa(String nama,String alamat,String NoTelp){
     }
 
     public void viewDosen() {
@@ -24,20 +15,15 @@ public class NodeDosen extends NodeWaliMahasiswa {
         System.out.println("Alamat : " + this.alamat);
         System.out.println("Nomer Telepon :"+this.NoTelp);
     }
-
-    public String getNama_Dosen() {
-        return nama;
+    
+    public void setJurusan(NodeJurusan jurusan){
+        this.jurusan = jurusan;
     }
 
-
-    public void setNoTelpDosen(String noTelp) {
-        this.NoTelp = noTelp;
-    }
-
+    // Buat ViewBy
     public int getNip_Dosen(){
         return nip;
     }
-// public void setNama_Mahasiswa(String nama_Mahasiswa) { 
-//     this.nama = nama_fakultas;
+
 }
 

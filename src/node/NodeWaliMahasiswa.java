@@ -19,8 +19,20 @@ public class NodeWaliMahasiswa {
         System.out.println("Alamat Wali : " + this.alamat);
         System.out.println("Nomer Telepon Wali :" + this.NoTelp);
     }
+    
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+    
+    public void setAlamat(String alamat){
+        this.alamat = alamat;
+    }
 
     public void setNoTelp(String telp) {
         this.NoTelp = telp;
+    }
+
+    public String getNama() {
+        return nama;
     }
 }

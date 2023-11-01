@@ -17,18 +17,15 @@ public class NodeJurusan {
         System.out.println("nama fakultas : " + this.nama_fakultas);
     }
 
-    public String getNama_jurusan() {
-        return nama_jurusan;
-    }
-    public String getKode_jurusan() {
-        return kode_jurusan;
-    }
-
     public void setNama_fakultas(String nama_fakultas) { 
         this.nama_fakultas = nama_fakultas;
     }
 
+    public String getNama_jurusan() {
+        return nama_jurusan;
+    }
 
-
-
+    public String getKode_jurusan() {
+        return kode_jurusan;
+    }
 }

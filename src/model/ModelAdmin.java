@@ -15,7 +15,7 @@ public  class ModelAdmin {
     public void viewAllAdmin() {
         for (int i = 0; i < Admin.size(); i++) {
             ModelAdmin.Admin.get(i).viewAdmin();
-            System.out.println(" -");
+            System.out.println(" ---------------");
         }
     }
 
@@ -31,14 +31,6 @@ public  class ModelAdmin {
         for (int i = 0; i < Admin.size(); i++) {
             if (nama.equals(Admin.get(i).getUsername())) {
                 Admin.remove(i);
-            }
-        }
-    }
-
-    public void searchAdmin(String Username, String Password) {
-        for (int i = 0; i < Admin.size(); i++) {
-            if (Username.equals(Admin.get(i).getUsername()) && Password.equals(Admin.get(i).getPassword())) {
-                Admin.get(i).viewAdmin();
             }
         }
     }

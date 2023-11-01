@@ -63,16 +63,16 @@ public void insertDosen (int nip, String nama, String alamat, String NoTelp) {
                     dosen.get(i).setNoTelp(newTelp);
                 }
                 if (!newJurusan.equals("-")){
-                    dosen.get(i).setJurusan(User.jurusan.getJurusan(newJurusan));
+                    dosen.get(i).setJurusan(User.jurusan.getJurusan(Integer.valueOf(newJurusan)));
                 }
             }
         }
     }
 
-    public void setJur(String nama){
+    public void setJur(String nama, int newJurusan) {
         for (int i = 0; i < dosen.size(); i++) {
             if (nama.equals(dosen.get(i).getNama())) {
-                dosen.get(i).setJurusan(User.jurusan.getJurusan(nama));
+                dosen.get(i).setJurusan(User.jurusan.getJurusan(newJurusan));
             }
         }
     }

@@ -11,7 +11,7 @@ public class ModelJurusan {
     }
 
 public void insertJurusan (String nama, String fakultas) {
-    String index = ""+departmens.size();
+    int index = departmens.size();
     this.departmens.add(new NodeJurusan (index+1, nama, fakultas)); }
 
     public void viewAllJurusan() {
@@ -46,9 +46,9 @@ public void updateJurusan (String nama_jurusan, String new_fakultas){
         return nama_jurusan;
     }
 
-    public NodeJurusan getJurusan(String kode){
+    public NodeJurusan getJurusan(int kode){
         for (int i = 0; i < departmens.size(); i++) {
-            if (kode.equals(departmens.get(i).getKode_jurusan())) {
+            if (kode==departmens.get(i).getKode_jurusan()) {
                 return departmens.get(i);
             }
         }

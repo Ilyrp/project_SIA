@@ -26,7 +26,7 @@ public class Login {
             if (pilih == 1) {
                 if (User.admin.validateAdmin(Username, Password)) {
                     System.out.println("Login admin berhasil.");
-                    Dashboard.menuAdmin();
+                    Dashboard2.menuAdmin();
                 } else {
                     System.out.println("Login admin gagal.");
                     break; // Keluar dari loop jika login gagal

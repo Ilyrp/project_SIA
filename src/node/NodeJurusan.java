@@ -1,11 +1,11 @@
 package node;
 
 public class NodeJurusan {
-    String kode_jurusan;
+    int kode_jurusan;
     String nama_jurusan;
     String nama_fakultas;
 
-    public NodeJurusan (String kode_jurusan, String nama_jurusan, String nama_fakultas) {
+    public NodeJurusan (int kode_jurusan, String nama_jurusan, String nama_fakultas) {
         this.kode_jurusan = kode_jurusan;
         this.nama_jurusan = nama_jurusan;
         this.nama_fakultas = nama_fakultas;
@@ -25,7 +25,7 @@ public class NodeJurusan {
         return nama_jurusan;
     }
 
-    public String getKode_jurusan() {
+    public int getKode_jurusan() {
         return kode_jurusan;
     }
 }

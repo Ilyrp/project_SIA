@@ -71,17 +71,17 @@ public class ModelMahasiswa {
                     Students.get(i).setNoTelp(newTelp);
                 }
                 if (!newJurusan.equals("-")){
-                    Students.get(i).setJurusan(User.jurusan.getJurusan(newJurusan));
+                    Students.get(i).setJurusan(User.jurusan.getJurusan((Integer.valueOf(newJurusan))));
                 }
             }
         }
     }
 
 
-    public void setJur(String nama){
+    public void setJur(String nama, int newJurusan) {
         for (int i = 0; i < Students.size(); i++) {
             if (nama.equals(Students.get(i).getNama())) {
-                Students.get(i).setJurusan(User.jurusan.getJurusan(nama));
+                Students.get(i).setJurusan(User.jurusan.getJurusan(newJurusan));
             }
         }
     }

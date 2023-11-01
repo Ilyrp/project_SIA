@@ -4,9 +4,6 @@ import node.NodeJurusan;
 
 public class NodeMahasiswa extends NodeWaliMahasiswa {
     String npm;
-    // String nama;
-    // String kewarganegaraan;
-    // String NoTelp;
     boolean her = false;
     NodeWaliMahasiswa waliMahasiswa;
     NodeJurusan jurusan;

@@ -12,8 +12,6 @@ public class ModelMahasiswa {
     public ModelMahasiswa() {
         this.Students = new ArrayList<>();
     }
-
-
     public void insertMahasiswa (String nama, String kewarganegaraan, String telp, boolean her) {
         this.Students.add(new NodeMahasiswa(nama, kewarganegaraan, telp, her)); 
     }
@@ -34,7 +32,7 @@ public class ModelMahasiswa {
     public void updateNpm (String nama){
         for (int i = 0; i <Students.size();i++){
             if (nama.equals(Students.get(i).getNama_Mahasiswa())){
-                indexNpm +=1;
+                indexNpm +="1";
                 Students.get(i).setNpm(indexNpm);
             }
         }

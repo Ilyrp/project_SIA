@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import controller.User;
 import node.NodeDosen;
+import node.NodeJurusan;
 
 public class ModelDosen {
     ArrayList<NodeDosen> dosen;
@@ -12,8 +13,8 @@ public class ModelDosen {
         this.dosen = new ArrayList<>();
     }
 
-public void insertDosen (int nip, String nama, String alamat, String NoTelp) {
-    this.dosen.add(new NodeDosen (nip, nama, alamat, NoTelp)); }
+public void insertDosen (int nip, String nama, String alamat, String NoTelp, NodeJurusan jurusan) {
+    this.dosen.add(new NodeDosen (nip, nama, alamat, NoTelp, jurusan)); }
 
     public void viewAllDosen() {
         for (int i = 0; i < dosen.size(); i++) {
@@ -22,17 +23,18 @@ public void insertDosen (int nip, String nama, String alamat, String NoTelp) {
         }
     }
 
-    public void deleteDosen(String namadosen) {
+    public void deleteDosen(int nip) {
         for (int i = 0; i < dosen.size(); i++) {
-            if (namadosen.equals(dosen.get(i).getNama())) {
+            if (nip==dosen.get(i).getNip_Dosen()) {
                 dosen.remove(i);
+                System.out.println("Data berhasil dihapus");
             }
         }
     }
 
 
 
-    public void viewDosenBy(int nip){
+    public void viewDosenByNip(int nip){
         for (int i = 0; i<dosen.size();i++){
             if (nip == dosen.get(i).getNip_Dosen()){
                 dosen.get(i).viewDosen();
@@ -59,6 +61,15 @@ public void insertDosen (int nip, String nama, String alamat, String NoTelp) {
             }
         }
     }
+
+    public NodeDosen searchDosen(int kode){
+        for (int i = 0; i < dosen.size(); i++) {
+           if (kode==dosen.get(i).getNip_Dosen()) {
+               return dosen.get(i);
+           }
+       }
+       return null;
+   }
 
     public void setJur(String nama, int newJurusan) {
         for (int i = 0; i < dosen.size(); i++) {

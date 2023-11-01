@@ -23,7 +23,7 @@ public class User {
         admin.insertAdmin("Calosa", "1234");
         admin.insertAdmin("y", "y");
 
-        mahasiswa.insertMahasiswa("Budi","indon", "23");
+        // mahasiswa.insertMahasiswa("Budi","indon", "23");
 
         jurusan.insertJurusan("Teknik Informatika", "FTETI");
         jurusan.insertJurusan("Teknik Elektro", "FTETI");

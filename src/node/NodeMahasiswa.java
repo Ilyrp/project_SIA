@@ -6,9 +6,12 @@ public class NodeMahasiswa extends NodeWaliMahasiswa {
     String npm;
     NodeWaliMahasiswa waliMahasiswa;
     NodeJurusan jurusan;
+    NodeDosen doswal;
 
-    public NodeMahasiswa(String nama, String alamat,String NoTelp) {
+    public NodeMahasiswa(String nama, String alamat,String NoTelp,String namaWali,String alamatWali,String NoTelpWali, NodeJurusan jurusan) {
         super(nama, alamat, NoTelp);
+        waliMahasiswa = new NodeWaliMahasiswa(namaWali, alamatWali, NoTelpWali);
+        this.jurusan = jurusan;
         // this.nama = nama;
         // this.alamat = alamat;
         // this.NoTelp = NoTelp;
@@ -17,12 +20,26 @@ public class NodeMahasiswa extends NodeWaliMahasiswa {
     }
 
     public void viewMahasiswa() {
-        System.out.println("NPM  : " + this.npm);
+        if (this.npm != null){   
+            System.out.println("NPM  : " + this.npm);
+        }
         System.out.println("Nama : " + this.nama);
         System.out.println("Alamat : " + this.alamat);
         System.out.println("Nomer Telepon :"+this.NoTelp);
-        System.out.println("Jurusan : " + this.jurusan);
+        waliMahasiswa.viewWali();
+        System.out.println("Jurusan : " + this.jurusan.nama_jurusan);
+        if(this.doswal != null){
+            System.out.println("Dosen Wali : " + this.doswal.nama);
+        }
     }
+
+    public void viewWali(){
+        System.out.println("Nama Wali Mahasiswa : " + this.waliMahasiswa.nama);
+        System.out.println("Alamat Wali Mahasiswa : " + this.waliMahasiswa.alamat);
+        System.out.println("Nomer Telepon Wali Mahasiswa :"+this.waliMahasiswa.NoTelp);
+    }
+
+
 
     public void setNpm(String npm){
         this.npm = npm;
@@ -32,10 +49,12 @@ public class NodeMahasiswa extends NodeWaliMahasiswa {
         this.jurusan = jurusan;
     }
     
-    
-// belum di set
+    public void setDoswal(NodeDosen doswal){
+        this.doswal = doswal;
+    }
 
-    public void waliMahasiswa(String nama,String alamat,String NoTelp){        
+    public void waliMahasiswa(String nama,String alamat,String NoTelp){
+        this.waliMahasiswa = new NodeWaliMahasiswa(nama, alamat, NoTelp);    
     }
 
    public void setNoTelp_Mahasiswa(String NoTelp){

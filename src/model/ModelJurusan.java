@@ -37,10 +37,10 @@ public void updateJurusan (String nama_jurusan, String new_fakultas){
         }
     }
 
-    public String searchJurusan(int kode){
+    public NodeJurusan searchJurusan(int kode){
          for (int i = 0; i < departmens.size(); i++) {
             if (kode==departmens.get(i).getKode_jurusan()) {
-                return departmens.get(i).getNama_jurusan();
+                return departmens.get(i);
             }
         }
         return null;

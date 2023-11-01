@@ -3,6 +3,8 @@ package view;
 import java.util.Scanner;
 import java.time.LocalDate;
 import controller.User;
+import node.NodeDosen;
+import node.NodeJurusan;
 
 public class Dashboard2 {
     public static void menuAdmin() {
@@ -32,7 +34,8 @@ public class Dashboard2 {
                     User.jurusan.viewAllJurusan();
                     System.out.print("Masukkan Jurusan : ");
                     int jur= input.nextInt();
-                    User.mahasiswa.setJur(namaPendaftar, jur);
+                    NodeJurusan j = User.jurusan.searchJurusan(jur);
+                    
                     // selector
                     input.nextLine();
                     System.out.print("Masukkan alamat : ");
@@ -47,8 +50,7 @@ public class Dashboard2 {
                     String alamatWali = input.nextLine();
                     System.out.print("Masukkan Nomer Telepon Wali : ");
                     String noTelponWali = input.nextLine();
-                    User.mahasiswa.insertMahasiswa(namaPendaftar, alamat, noTelepon);
-                    User.mahasiswa.viewAllMahasiswa();
+                    User.mahasiswa.insertMahasiswa(namaPendaftar, alamat, noTelepon,namaWali,alamatWali,noTelponWali,j);
                     break;
                 case 2:
                     manageDosen(input);
@@ -85,14 +87,21 @@ public class Dashboard2 {
 
         do {
             System.out.println("Menu Sekertaris Jurusan");
-            System.out.println("1. Random DosWal");
+            System.out.println("1. Set DosWal");
             System.out.println("2. Log Out");
             System.out.print("Masukkan Pilihan: ");
             pilih = input.nextInt();
 
             switch (pilih) {
                 case 1:
-                    // Random DosWal code
+                    System.out.println("Masukkan Nama Mahasiswa : ");
+                    String nama = input.nextLine();
+                    User.dosen.viewAllDosen();
+                    System.out.println("Pilih dosen wali(NIP) : ");
+                    int nip = input.nextInt();
+                    NodeDosen d = User.dosen.searchDosen(nip);
+                    User.mahasiswa.setDoswal(nama, d);
+                    User.mahasiswa.viewMahasiswaByNama(nama);
                     break;
                 case 2:
                     System.out.println("Logging out...");
@@ -103,6 +112,11 @@ public class Dashboard2 {
             }
         } while (pilih != 2);
     }
+
+
+
+
+
 
     public static void manageDosen(Scanner input) {
         int pilih;
@@ -129,8 +143,11 @@ public class Dashboard2 {
                     String alamatDosen = input.nextLine();
                     System.out.print("Masukkan Nomer Telepon Dosen : ");
                     String noTelpDosen = input.nextLine();
-                    System.out.print("Masukkan Jurusan Dosen");
-                    User.dosen.insertDosen(nip, namaDosen, alamatDosen, noTelpDosen);
+                    User.jurusan.viewAllJurusan();
+                    System.out.print("Masukkan Jurusan Dosen : ");
+                    int newJurusan = input.nextInt();
+                    NodeJurusan jur = User.jurusan.searchJurusan(newJurusan);
+                    User.dosen.insertDosen(nip, namaDosen, alamatDosen, noTelpDosen, jur);
                     break;
                 case 2:
                     System.out.println("Update Data Dosen");
@@ -143,14 +160,18 @@ public class Dashboard2 {
                     alamatDosen = input.nextLine();
                     System.out.print("Masukkan Nomer Telepon Dosen : ");
                     noTelpDosen = input.nextLine();
+                    User.jurusan.viewAllJurusan();
+                    System.out.print("Masukkan Jurusan Dosen : ");
+                    newJurusan = input.nextInt();
+                    jur = User.jurusan.searchJurusan(newJurusan);
 
                     User.dosen.updateDosen(nip, namaDosen, alamatDosen,alamatDosen, noTelpDosen);
                                     
                     break;
                 case 3:
-                    System.out.print("Masukkan NIP dosen Yang Ingin Dilihat :");
-                    String namadosen = input.nextLine();
-                    User.dosen.deleteDosen(namadosen);
+                    System.out.print("Masukkan NIP dosen Yang Ingin Dihapus :");
+                    int nipdosen = input.nextInt();
+                    User.dosen.deleteDosen(nipdosen);
                     break;
                 case 4:
                     System.out.print("Daftar Dosen");
@@ -159,7 +180,7 @@ public class Dashboard2 {
                 case 5:
                     System.out.print("Masukkan Nip Dosen Yang Ingin Dihilat");
                     nip = input.nextInt();
-                    User.dosen.viewDosenBy(nip);  
+                    User.dosen.viewDosenByNip(nip);
                     break;
                 case 6:
                     System.out.println("Kembali");
@@ -200,19 +221,19 @@ public class Dashboard2 {
                     User.mahasiswa.updateMahasiswa(npm, namaMahasiswa, alamatMahasiswa, noTelpMahasiswa, jurusanMahasiswa);
                     break;
                 case 2:
-                    System.out.print("Hapus Data Mahasiswa");
-                    System.out.print("Masukkan NPM Mahasiswa : ");
-                    String nama = input.nextLine();
-                    User.dosen.deleteDosen(nama);
+                    System.out.println("Hapus Data Mahasiswa");
+                    System.out.print("Masukkan nama Mahasiswa : ");
+                    npm = input.nextLine();
+                    User.mahasiswa.deleteMahasiswa(npm);
                     break;
                 case 3:
-                    System.out.print("Daftar Mahasiswa");
+                    System.out.println("Daftar Mahasiswa");
                     User.mahasiswa.viewAllMahasiswa();
                     break;
                 case 4:
                     System.out.print("Masukkan NPM Yang Ingin Dilihat : ");
-                    String setNpm = input.nextLine();
-                    User.mahasiswa.viewMahasiswaBy(setNpm);
+                    npm = input.nextLine();
+                    User.mahasiswa.viewMahasiswaByNpm(npm);
                     break;
                 case 5:
                     System.out.println("Kembali");
@@ -255,6 +276,7 @@ public class Dashboard2 {
                     User.jurusan.updateJurusan(namaJurusan, fakultasJurusan);
                     break;
                 case 3:
+                    User.jurusan.viewAllJurusan();
                     System.out.print("Masukkan Jurusan yang ingin dihapus : ");
                     String jurusan = input.nextLine();
                     User.jurusan.deleteJurusan(jurusan);

@@ -2,47 +2,54 @@ package view;
 
 import java.util.Scanner;
 
+import controller.User;
+
 public class Login {
-    String Username;
-    String Password;
+    static String Username;
+    static String Password;
 
-    Scanner input = new Scanner(System.in);
-
-    public void login(){
-    System.out.println("Masukkan Username : ");
-    Username = input.nextLine();
-    System.out.println("Masukkan Password : ");
-    Password = input.nextLine();
-    }
-
+    static Scanner input = new Scanner(System.in);
     
-    public String getUserInput(String text) {
-        System.out.print(text);
-        return input.nextLine();
-    }
-    // taro di controller
-    
-    public void menuAdmin(){
-            System.out.println("Menu ADMIN");
-            System.out.println("1. Pendaftaran Mahasiswa ");
-            System.out.println("2. Manage Dosen Wali ");
-            System.out.println("3. Manage Jurusan");
-            System.out.println("4. Manage Pembayaran");
-            System.out.println("5. Log Out");
-    }
+    public static boolean login(){
+    while (true) {  
+        System.out.println("Pilih Menu");
+        System.out.println("1. Admin");
+        System.out.println("2. SekJur");
+        int pilih = input.nextInt();
+        input.nextLine();
+        System.out.println("Masukkan Username : ");
+        Username = input.nextLine();
+        System.out.println("Masukkan Password : ");
+        Password = input.nextLine();
 
-    public void menuSekJur(){
-            System.out.println("Menu Sekertaris Jurusan");
-            System.out.println("1. Random DosWal");
-            System.out.println("2. Log Out");
+        while (true) {
+            if (pilih == 1) {
+                if (User.admin.validateAdmin(Username, Password)) {
+                    System.out.println("Login admin berhasil.");
+                    Dashboard.menuAdmin();
+                } else {
+                    System.out.println("Login admin gagal.");
+                    break; // Keluar dari loop jika login gagal
+                }
+            } else if (pilih == 2) {
+                // Tambahkan validasi untuk login sebagai user biasa
+                // if (user.validate(Username, Password)) {
+                //     System.out.println("Login user berhasil.");
+                //     Dashboard.menuSekJur();
+                // } else {
+                //     System.out.println("Login user gagal.");
+                //     return false; // Keluar dari loop jika login gagal
+                // }
+            }else if(pilih==0){
+                System.out.println("Keluar");
+                return false;
+                
+            } else {
+                System.out.println("Pilihan tidak valid. Ulangi.");
+                break; // Keluar dari loop jika pilihan tidak valid
+            }
+        }
+        
     }
-    //if elsenya nanti di controller juga
-
-    public void menuMahasiswa(){
-        System.out.println("Menu Mahasiswa");
-        System.out.println("1. Pembayaran");
-        System.out.println("2. Manage Bio");
     }
-
-
 }

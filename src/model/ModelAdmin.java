@@ -2,19 +2,19 @@ package model;
 import java.util.ArrayList;
 import node.NodeAdmin;
 
-public class ModelAdmin {
-      ArrayList<NodeAdmin> Admin;
+public  class ModelAdmin {
+     public static ArrayList<NodeAdmin> Admin = new ArrayList<>();
 
     public ModelAdmin() {
-        this.Admin = new ArrayList<>();
+        ModelAdmin.Admin = new ArrayList<>();
     }
 
     public void insertAdmin (String Username, String Password) {
-        this.Admin.add(new NodeAdmin(Username, Password)); }
+        ModelAdmin.Admin.add(new NodeAdmin(Username, Password)); }
 
     public void viewAllAdmin() {
         for (int i = 0; i < Admin.size(); i++) {
-            this.Admin.get(i).viewAdmin();
+            ModelAdmin.Admin.get(i).viewAdmin();
             System.out.println(" -");
         }
     }

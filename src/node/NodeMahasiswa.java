@@ -4,7 +4,6 @@ import node.NodeJurusan;
 
 public class NodeMahasiswa extends NodeWaliMahasiswa {
     String npm;
-    boolean her = false;
     NodeWaliMahasiswa waliMahasiswa;
     NodeJurusan jurusan;
 
@@ -13,17 +12,12 @@ public class NodeMahasiswa extends NodeWaliMahasiswa {
         // this.nama = nama;
         // this.kewarganegaraan = kewarganegaraan;
         // this.NoTelp = NoTelp;
-        this.her = her;
         // NodeWaliMahasiswa wm = new NodeWaliMahasiswa(nama,kewarganegaraan,NoTelp);
         // this.waliMahasiswa = wm;
     }
 
     public void setNpm(String npm){
         this.npm = npm;
-    }
-
-    public void setHer(boolean her){
-        this.her = her;
     }
 
     public void waliMahasiswa(String nama,String kewarganegaraan,String NoTelp){
@@ -39,7 +33,6 @@ public class NodeMahasiswa extends NodeWaliMahasiswa {
         System.out.println("Nama : " + this.nama);
         System.out.println("Kewarganegaraan : " + this.kewarganegaraan);
         System.out.println("Nomer Telepon :"+this.NoTelp);
-        System.out.println("Her :"+this.her);
     }
 
     public String getNama_Mahasiswa() {

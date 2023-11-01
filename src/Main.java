@@ -30,11 +30,9 @@ public class Main {
 
     //    Menu menu = new Menu();
         System.out.println(admin1.validateAdmin("Calosa","1234"));
-        NodeJurusan jur = jurusan.getJurusan("01");
         mahasiswa1.updateNpm("Franky");
         mahasiswa1.updateNpm("Fika");
         mahasiswa1.viewAllMahasiswa();
-        mahasiswa1.setJur("Franky", jur);
     }
 
 }

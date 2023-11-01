@@ -18,7 +18,7 @@ public void insertDoswal (String nip, String namaDosen, String kewarganegaraan, 
     public void viewAllDosen() {
         for (int i = 0; i < dosWal.size(); i++) {
             this.dosWal.get(i).viewDosen();
-            // System.out.println(" -");
+            System.out.println(" -");
         }
     }
 

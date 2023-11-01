@@ -27,7 +27,21 @@ public class Main {
        doswal.insertDoswal("9876", "Didik", "Jepun", "0876543234");
        doswal.viewAllDosen();
 
-       Menu menu = new Menu();
-        System.out.println(menu.validate("Calosa","1234"));
+    //    Menu menu = new Menu();
+        System.out.println(admin1.validateAdmin("Calosa","1234"));
     }
 }
+
+/*
+ * agregation mahasiswa, dosen dan jurusan
+ * composition mahasiswa, waliMahasiswa
+ * inheritance done
+ * validate jika her false dont generate npm
+ * setter npm
+ * generate jurusan static
+ * login
+ * menu each role
+ * sekJur meng agregasi dosen ke mahasiswa
+ * mahasiswa - pembayaran her
+ * admin - pendaftaran
+ */

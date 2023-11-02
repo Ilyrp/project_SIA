@@ -7,18 +7,18 @@ import node.NodeDosen;
 import node.NodeJurusan;
 
 public class ModelDosen {
-    ArrayList<NodeDosen> dosen;
+    public static ArrayList<NodeDosen> dosen;
 
     public ModelDosen() {
-        this.dosen = new ArrayList<>();
+        ModelDosen.dosen = new ArrayList<>();
     }
 
 public void insertDosen (int nip, String nama, String alamat, String NoTelp, NodeJurusan jurusan) {
-    this.dosen.add(new NodeDosen (nip, nama, alamat, NoTelp, jurusan)); }
+    ModelDosen.dosen.add(new NodeDosen (nip, nama, alamat, NoTelp, jurusan)); }
 
     public void viewAllDosen() {
         for (int i = 0; i < dosen.size(); i++) {
-            this.dosen.get(i).viewDosen();
+            ModelDosen.dosen.get(i).viewDosen();
             System.out.println(" ---------------");
         }
     }
@@ -43,21 +43,10 @@ public void insertDosen (int nip, String nama, String alamat, String NoTelp, Nod
     }
 
     
-    public void updateDosen(int nip,String newNama, String newAlamat, String newTelp,String newJurusan) {
+    public void updateDosen(int nip, NodeJurusan newJurusan) {
         for (int i = 0; i < dosen.size(); i++) {
             if (nip == dosen.get(i).getNip_Dosen()) {
-                if (!newNama.equals("-")) {
-                    dosen.get(i).setNama(newNama);
-                }
-                if (!newAlamat.equals("-")) {
-                    dosen.get(i).setAlamat(newAlamat);
-                }
-                if (!newTelp.equals("-")) {
-                    dosen.get(i).setNoTelp(newTelp);
-                }
-                if (!newJurusan.equals("-")){
-                    dosen.get(i).setJurusan(User.jurusan.getJurusan(Integer.valueOf(newJurusan)));
-                }
+                dosen.get(i).setJurusan(newJurusan);
             }
         }
     }

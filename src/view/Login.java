@@ -40,7 +40,7 @@ public class Login {
                     Password = input.nextLine();
                     if (User.admin.validateAdmin(Username, Password)) {
                         System.out.println("Login admin berhasil.");
-                        Dashboard2.menuAdmin();
+                        Dashboard.menuAdmin();
                     }
                     else{
                         System.out.println("Login admin gagal.");
@@ -54,7 +54,7 @@ public class Login {
                     Password = input.nextLine();
                     if (User.sekjur.validateSekjur(Username, Password)) {
                         System.out.println("Login Sekjur berhasil.");
-                    Dashboard2.menuSekJur();
+                        Dashboard.menuSekJur();
                     }
                     else{
                         System.out.println("Login Sekjur gagal.");

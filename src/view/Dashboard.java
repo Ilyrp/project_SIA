@@ -5,8 +5,9 @@ import java.time.LocalDate;
 import controller.User;
 import node.NodeDosen;
 import node.NodeJurusan;
+import node.NodeMahasiswa;
 
-public class Dashboard2 {
+public class Dashboard {
     public static void menuAdmin() {
         Scanner input = new Scanner(System.in);
         LocalDate time = LocalDate.now();
@@ -69,7 +70,9 @@ public class Dashboard2 {
                     System.out.println("Masukkan Kasir : ");
                     String kasir = input.nextLine();
                     System.out.println("Tanggal Bayar : "+time);
+                    NodeMahasiswa mhs = User.mahasiswa.searchMahasiswa(nama);
                     User.mahasiswa.updateNpm(nama);
+                    User.pembayaran.insertPembayaran(time,mhs, kasir);
                     break;
                 case 6:
                     System.out.println("Logging out...");
@@ -94,6 +97,7 @@ public class Dashboard2 {
 
             switch (pilih) {
                 case 1:
+                    input.nextLine();
                     System.out.println("Masukkan Nama Mahasiswa : ");
                     String nama = input.nextLine();
                     User.dosen.viewAllDosen();
@@ -111,6 +115,7 @@ public class Dashboard2 {
                     break;
             }
         } while (pilih != 2);
+        input.close();
     }
 
 
@@ -153,19 +158,11 @@ public class Dashboard2 {
                     System.out.println("Update Data Dosen");
                     System.out.print("Masukkan NIP Dosen : ");
                     nip = input.nextInt();
-                    input.nextLine();
-                    System.out.print("Masukkan Nama Dosen : ");
-                    namaDosen = input.nextLine();
-                    System.out.print("Masukkan Alamat Dosen : ");
-                    alamatDosen = input.nextLine();
-                    System.out.print("Masukkan Nomer Telepon Dosen : ");
-                    noTelpDosen = input.nextLine();
-                    User.jurusan.viewAllJurusan();
                     System.out.print("Masukkan Jurusan Dosen : ");
                     newJurusan = input.nextInt();
                     jur = User.jurusan.searchJurusan(newJurusan);
+                    User.dosen.updateDosen(nip, jur);
 
-                    User.dosen.updateDosen(nip, namaDosen, alamatDosen,alamatDosen, noTelpDosen);
                                     
                     break;
                 case 3:

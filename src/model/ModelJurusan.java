@@ -11,7 +11,7 @@ public class ModelJurusan {
     }
 
 public void insertJurusan (String nama, String fakultas) {
-    int index = departmens.size();
+    int index = departmens.get(departmens.size()).getKode_jurusan();
     ModelJurusan.departmens.add(new NodeJurusan (index+1, nama, fakultas)); }
 
     public void viewAllJurusan() {

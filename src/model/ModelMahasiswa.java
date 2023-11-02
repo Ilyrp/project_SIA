@@ -45,10 +45,20 @@ public class ModelMahasiswa {
         }
     }
 
+    // public void updateNpm (String nama){
+    //     for (int i = 0; i <Students.size();i++){
+    //         if (nama.equals(Students.get(i).getNama())){
+    //             indexNpm +=1;
+    //             Students.get(i).setNpm(indexNpm);
+    //         }
+    //     }
+    // }
+
     public void updateNpm (String nama){
+        int index = (Students.size());
+        String indexNpm = String.format("%04d", index);
         for (int i = 0; i <Students.size();i++){
             if (nama.equals(Students.get(i).getNama())){
-                indexNpm +=1;
                 Students.get(i).setNpm(indexNpm);
             }
         }
@@ -61,6 +71,15 @@ public class ModelMahasiswa {
 //         }
 //     }
 // }
+
+    public NodeMahasiswa searchMahasiswa(String nama){
+        for (int i = 0; i < Students.size(); i++) {
+            if (nama.equals(Students.get(i).getNama())) {
+                return Students.get(i);
+            }
+        }
+        return null;
+    }
 
     public void deleteMahasiswa(String nama) {
         for (int i = 0; i < Students.size(); i++) {

@@ -22,6 +22,7 @@ public class NodeDosen extends NodeWaliMahasiswa {
         this.jurusan = jurusan;
     }
 
+
     // Buat ViewBy
     public int getNip_Dosen(){
         return nip;

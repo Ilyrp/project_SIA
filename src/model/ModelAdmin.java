@@ -14,7 +14,7 @@ public  class ModelAdmin {
 
     public void viewAllAdmin() {
         for (int i = 0; i < Admin.size(); i++) {
-            ModelAdmin.Admin.get(i).viewAdmin();
+            ModelAdmin.Admin.get(i).view();
             System.out.println(" ---------------");
         }
     }

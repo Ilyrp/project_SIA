@@ -4,6 +4,7 @@ import model.ModelAdmin;
 import model.ModelDosen;
 import model.ModelJurusan;
 import model.ModelMahasiswa;
+import model.ModelSekjur;
 // import model.ModelDoswal;
 // import model.ModelJurusan;
 // import model.ModelMahasiswa;
@@ -17,11 +18,15 @@ public class User {
     public static ModelMahasiswa mahasiswa = new ModelMahasiswa(); 
     public static ModelJurusan jurusan = new ModelJurusan();
     public static ModelDosen dosen = new ModelDosen();
+    public static ModelSekjur sekjur = new ModelSekjur();
     
     public void ya(){
         
         admin.insertAdmin("Calosa", "1234");
         admin.insertAdmin("y", "y");
+
+        sekjur.insertSekjur("F", "F");
+        sekjur.insertSekjur("n", "n");
 
         // mahasiswa.insertMahasiswa("Budi","indon", "23");
 

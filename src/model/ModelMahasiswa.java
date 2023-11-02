@@ -10,13 +10,13 @@ import node.NodeMahasiswa;
 
 public class ModelMahasiswa {
     String indexNpm = String.format("%04d", 0);
-    ArrayList<NodeMahasiswa> Students;
+    public static ArrayList<NodeMahasiswa> Students;
 
     public ModelMahasiswa() {
-        this.Students = new ArrayList<>();
+        ModelMahasiswa.Students = new ArrayList<>();
     }
     public void insertMahasiswa (String nama, String alamat, String telp,String namaWali, String alamatWali, String telpWali, NodeJurusan jurusan) {
-        this.Students.add(new NodeMahasiswa(nama, alamat, telp,namaWali,alamatWali,telpWali, jurusan)); 
+        ModelMahasiswa.Students.add(new NodeMahasiswa(nama, alamat, telp,namaWali,alamatWali,telpWali, jurusan)); 
     }
 
     public void viewMahasiswaByNpm(String npm){
@@ -40,7 +40,7 @@ public class ModelMahasiswa {
 
     public void viewAllMahasiswa() {
         for (int i = 0; i < Students.size(); i++) {
-            this.Students.get(i).viewMahasiswa();
+            ModelMahasiswa.Students.get(i).viewMahasiswa();
             System.out.println(" -----------------");
         }
     }

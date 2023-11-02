@@ -47,7 +47,18 @@ public class Login {
                     }
                     break;
                 case 2:
+                    input.nextLine();
+                    System.out.println("Masukkan Username : ");
+                    Username = input.nextLine();
+                    System.out.println("Masukkan Password : ");
+                    Password = input.nextLine();
+                    if (User.sekjur.validateSekjur(Username, Password)) {
+                        System.out.println("Login Sekjur berhasil.");
                     Dashboard2.menuSekJur();
+                    }
+                    else{
+                        System.out.println("Login Sekjur gagal.");
+                    }
                     break;
                 case 3:
                     System.out.println("Keluar");

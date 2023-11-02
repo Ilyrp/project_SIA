@@ -9,7 +9,7 @@ public class NodeAdmin {
         this.Password = Password;
     }
 
-    public void viewAdmin() {
+    public void view() {
         System.out.println("Username :"+this.Username);
         System.out.println("Password :"+this.Password);
     }

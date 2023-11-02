@@ -9,7 +9,8 @@ import node.NodeMahasiswa;
 // import model.ModelJurusan;
 
 public class ModelMahasiswa {
-    String indexNpm = String.format("%04d", 0);
+    int lastIndex = 0;
+    String indexNpm = String.format("%04d", lastIndex);
     public static ArrayList<NodeMahasiswa> Students;
 
     public ModelMahasiswa() {
@@ -82,12 +83,17 @@ public class ModelMahasiswa {
     }
 
     public void deleteMahasiswa(String nama) {
-        for (int i = 0; i < Students.size(); i++) {
-            if (nama.equals(Students.get(i).getNama())) {
-                Students.remove(i);
-            }
+    ArrayList<NodeMahasiswa> mahasiswaToDelete = new ArrayList<>();
+
+    for (NodeMahasiswa mahasiswa : Students) {
+        if (nama.equalsIgnoreCase(mahasiswa.getNama())) {
+            mahasiswaToDelete.add(mahasiswa);
         }
     }
+
+    Students.removeAll(mahasiswaToDelete);
+}
+
 
     public void updateMahasiswa(String npm,String newNama, String newAlamat, String newTelp,String newJurusan) {
         for (int i = 0; i < Students.size(); i++) {

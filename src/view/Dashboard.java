@@ -115,7 +115,6 @@ public class Dashboard {
                     break;
             }
         } while (pilih != 2);
-        input.close();
     }
 
 
@@ -220,8 +219,8 @@ public class Dashboard {
                 case 2:
                     System.out.println("Hapus Data Mahasiswa");
                     System.out.print("Masukkan nama Mahasiswa : ");
-                    npm = input.nextLine();
-                    User.mahasiswa.deleteMahasiswa(npm);
+                    String nama = input.nextLine();
+                    User.mahasiswa.deleteMahasiswa(nama);
                     break;
                 case 3:
                     System.out.println("Daftar Mahasiswa");
@@ -250,7 +249,8 @@ public class Dashboard {
             System.out.println("1. Tambah Jurusan");
             System.out.println("2. Update Jurusan");
             System.out.println("3. Hapus Jurusan");
-            System.out.println("4. Kembali");
+            System.out.println("4. View All Jurusan");
+            System.out.println("5. Kembali");
             System.out.print("Masukkan Pilihan: ");
             pilih = input.nextInt();
 
@@ -279,12 +279,146 @@ public class Dashboard {
                     User.jurusan.deleteJurusan(jurusan);
                     break;
                 case 4:
+                    User.jurusan.viewAllJurusan();
+                    break;
+                case 5:
                     System.out.println("Kembali");
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+                    break;
+            }
+        } while (pilih != 5);
+    }
+
+    
+
+    
+    public static void manageUser(){
+        Scanner input = new Scanner(System.in);
+        int pilih;
+
+        do {
+            System.out.println("Menu Manage User");
+            System.out.println("1. Tambah User");
+            System.out.println("2. Update Password User");
+            System.out.println("3. Delete User");
+            System.out.println("4. View All User");
+            System.out.println("5. Log Out");
+            System.out.print("Masukkan Pilihan: ");
+            pilih = input.nextInt();
+
+            switch (pilih) {
+                case 1:
+                    System.out.println("1. Tambah Admin");
+                    System.out.println("2. Tambah SekJur");
+                    System.out.println("3. Kembali");
+                    System.out.print("Pilih Menu: ");
+                    pilih = input.nextInt();
+                    switch (pilih) {
+                        case 1:
+                            input.nextLine();
+                            System.out.println("Masukkan Username Admin : ");
+                            String username = input.nextLine();
+                            System.out.println("Masukkan Password Admin");
+                            String password = input.nextLine();
+                            User.admin.insertAdmin(username,password);
+                            
+                            break;
+                        case 2:
+                        input.nextLine();
+                            System.out.println("Masukkan Username Admin : ");
+                            username = input.nextLine();
+                            System.out.println("Masukkan Password Admin");
+                            password = input.nextLine();
+                            User.sekjur.insertSekjur(username, password);
+                            break;
+                        default:
+                    }
+                    break;
+
+                case 2:
+                    System.out.println("1. Update Admin");
+                    System.out.println("2. Update SekJur");
+                    System.out.println("3. Kembali");
+                    System.out.print("Pilih Menu: ");
+                    pilih = input.nextInt();
+                    switch (pilih) {
+                        case 1:
+                            input.nextLine();
+                            System.out.println("Masukkan Username : ");
+                            String username = input.nextLine();
+                            System.out.println("Masukkan Password : ");
+                            String password = input.nextLine();
+                            User.admin.updatePassword(username, password);
+                            
+                            break;
+                        case 2:
+                        input.nextLine();
+                            System.out.println("Masukkan Username : ");
+                            username = input.nextLine();
+                            System.out.println("Masukkan Password : ");
+                            password = input.nextLine();
+                            User.sekjur.updatePassword(username, password);
+                            break;
+                        default:
+                            break;
+                        }
+                    break;
+                
+                case 3:
+                        System.out.println("Hapus User");
+                        System.out.println("1. Hapus Admin");
+                        System.out.println("2. Hapus  SekJur");
+                        System.out.println("3. Kembali");
+                        System.out.print("Pilih Menu: ");
+                        pilih = input.nextInt();
+                        switch (pilih) {
+                            case 1:
+                                input.nextLine();
+                                System.out.println("Masukkan Username Admin : ");
+                                String username = input.nextLine();
+                                User.admin.deleteAdmin(username);                               
+                                break;
+                            case 2:
+                            input.nextLine();
+                                System.out.println("Masukkan Username Admin : ");
+                                username = input.nextLine();
+                                User.sekjur.deleteSekjur(username);
+                        }
+                    break;
+                    
+                case 4:
+                    System.out.println("1. View All Admin");
+                    System.out.println("2. View All SekJur");
+                    System.out.println("3. Kembali");
+                    System.out.print("Pilih Menu: ");
+                    pilih = input.nextInt();
+                    switch (pilih) {
+                        case 1:
+                            input.nextLine();
+                            System.out.println("DATA USER ADMIN");
+                            User.admin.viewAllAdmin();
+                            
+                            break;
+                        case 2:
+                        input.nextLine();
+                            input.nextLine();
+                            System.out.println("DATA USER SEKJUR");
+                            User.sekjur.view();
+                            
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                case 5:
+                    System.out.println("Logging out...");
                     break;
                 default:
                     System.out.println("Invalid choice. Please try again.");
                     break;
             }
-        } while (pilih != 4);
+        } while (pilih != 5);
     }
 }
+

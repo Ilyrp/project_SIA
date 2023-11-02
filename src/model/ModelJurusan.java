@@ -11,13 +11,13 @@ public class ModelJurusan {
     }
 
 public void insertJurusan (String nama, String fakultas) {
-    int index = departmens.get(departmens.size()).getKode_jurusan();
+    int index = departmens.size();
     ModelJurusan.departmens.add(new NodeJurusan (index+1, nama, fakultas)); }
 
     public void viewAllJurusan() {
         for (int i = 0; i < departmens.size(); i++) {
             ModelJurusan.departmens.get(i).viewJurusan();
-            System.out.println(" -");
+            System.out.println(" --------------");
         }
     }
 

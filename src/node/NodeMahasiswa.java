@@ -65,7 +65,9 @@ public class NodeMahasiswa extends NodeWaliMahasiswa {
         return npm;
     }
 
-
+    public String getNama_Mahasiswa(){
+        return nama;
+    }
 
 
 }

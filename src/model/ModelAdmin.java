@@ -27,9 +27,9 @@ public  class ModelAdmin {
         }
     }
 
-    public void deleteAdmin(String nama) {
+    public void deleteAdmin(String Username) {
         for (int i = 0; i < Admin.size(); i++) {
-            if (nama.equals(Admin.get(i).getUsername())) {
+            if (Username.equals(Admin.get(i).getUsername())) {
                 Admin.remove(i);
             }
         }

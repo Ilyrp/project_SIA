@@ -10,9 +10,10 @@ public class ModelJurusan {
         ModelJurusan.departmens = new ArrayList<>();
     }
 
-public void insertJurusan (String nama, String fakultas) {
-    int index = departmens.size();
-    ModelJurusan.departmens.add(new NodeJurusan (index+1, nama, fakultas)); }
+    public void insertJurusan (String nama, String fakultas) {
+        int index = departmens.size();
+        ModelJurusan.departmens.add(new NodeJurusan (index+1, nama, fakultas)); 
+    }
 
     public void viewAllJurusan() {
         for (int i = 0; i < departmens.size(); i++) {
@@ -21,17 +22,17 @@ public void insertJurusan (String nama, String fakultas) {
         }
     }
 
-public void updateJurusan (String nama_jurusan, String new_fakultas){
-     for (int i = 0; i <departmens.size();i++){
-        if (nama_jurusan.equals(departmens.get(i).getNama_jurusan())){
-            departmens.get(i).setNama_fakultas (new_fakultas);
+    public void updateJurusan (String nama_jurusan, String new_fakultas){
+        for (int i = 0; i <departmens.size();i++){
+            if (nama_jurusan.equals(departmens.get(i).getNama_jurusan())){
+                departmens.get(i).setNama_fakultas (new_fakultas);
+            }
         }
     }
-}
 
-    public void deleteJurusan(String nama_jurusan) {
+    public void deleteJurusan(int kode) {
         for (int i = 0; i < departmens.size(); i++) {
-            if (nama_jurusan.equals(departmens.get(i).getNama_jurusan())) {
+            if (kode == departmens.get(i).getKode_jurusan()) {
                 departmens.remove(i);
             }
         }
@@ -46,14 +47,4 @@ public void updateJurusan (String nama_jurusan, String new_fakultas){
         return null;
     }
 
-    public NodeJurusan getJurusan(int kode){
-        NodeJurusan j = null;
-        for (int i = 0; i < departmens.size(); i++) {
-            if (kode==departmens.get(i).getKode_jurusan()) {
-                j = departmens.get(i);
-                return j;
-            }
-        }
-        return j;
-    }
 }

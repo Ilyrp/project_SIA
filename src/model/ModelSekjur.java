@@ -14,7 +14,7 @@ public class ModelSekjur {
     public void insertSekjur (String Username, String Password) {
         ModelSekjur.Sekjur.add(new NodeSekjur(Username, Password)); }
 
-    public void view() {
+    public void viewAllSekjur() {
         for (int i = 0; i < Sekjur.size(); i++) {
             ModelSekjur.Sekjur.get(i).view();
             System.out.println(" ---------------");

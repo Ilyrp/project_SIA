@@ -98,14 +98,14 @@ public class Dashboard {
             switch (pilih) {
                 case 1:
                     input.nextLine();
-                    System.out.println("Masukkan Nama Mahasiswa : ");
-                    String nama = input.nextLine();
+                    System.out.println("Masukkan NPM Mahasiswa : ");
+                    String npm = input.nextLine();
                     User.dosen.viewAllDosen();
                     System.out.println("Pilih dosen wali(NIP) : ");
                     int nip = input.nextInt();
                     NodeDosen d = User.dosen.searchDosen(nip);
-                    User.mahasiswa.setDoswal(nama, d);
-                    User.mahasiswa.viewMahasiswaByNama(nama);
+                    User.mahasiswa.setDoswal(npm, d);
+                    User.mahasiswa.viewMahasiswaByNpm(npm);
                     break;
                 case 2:
                     System.out.println("Logging out...");
@@ -165,15 +165,18 @@ public class Dashboard {
                                     
                     break;
                 case 3:
+                    input.nextLine();
                     System.out.print("Masukkan NIP dosen Yang Ingin Dihapus :");
                     int nipdosen = input.nextInt();
                     User.dosen.deleteDosen(nipdosen);
                     break;
                 case 4:
+                    input.nextLine();
                     System.out.print("Daftar Dosen");
                     User.dosen.viewAllDosen();
                     break;
                 case 5:
+                    input.nextLine();
                     System.out.print("Masukkan Nip Dosen Yang Ingin Dihilat");
                     nip = input.nextInt();
                     User.dosen.viewDosenByNip(nip);
@@ -203,20 +206,52 @@ public class Dashboard {
 
             switch (pilih) {
                 case 1:
-                    input.nextLine();
-                    System.out.print("Masukkan NPM Mahasiswa : ");
-                    String npm = input.nextLine();
-                    System.out.print("Masukkan Nama Mahasiswa : ");
-                    String namaMahasiswa = input.nextLine();
-                    System.out.print("Masukkan alamat Mahasiswa : ");
-                    String alamatMahasiswa = input.nextLine();
-                    System.out.print("Masukkan Nomer Telepon Mahasiswa : ");
-                    String noTelpMahasiswa = input.nextLine();
-                    System.out.print("Masukkan Jurusan Mahasiswa");
-                    String jurusanMahasiswa = input.nextLine();
-                    User.mahasiswa.updateMahasiswa(npm, namaMahasiswa, alamatMahasiswa, noTelpMahasiswa, jurusanMahasiswa);
+                int n;
+                String npm;
+                do {
+                    System.out.println("Menu Update");
+                    System.out.println("1. Update alamat");
+                    System.out.println("2. Update Nomer Telepon");
+                    System.out.println("3. Update Jurusan");
+                    System.out.println("4. Kembali");
+                    System.out.print("Masukkan Pilihan: ");
+                    n = input.nextInt();
+                    switch (n) {
+                        case 1:
+                            System.out.print("Masukkan NPM Mahasiswa : ");
+                            npm = input.nextLine();
+                            System.out.print("Masukkan alamat Baru : ");
+                            String alamat = input.nextLine();
+                            User.mahasiswa.updateAlamat(npm, alamat);
+                            break;
+                        case 2:
+                            System.out.print("Masukkan NPM Mahasiswa : ");
+                            npm = input.nextLine();
+                            System.out.print("Masukkan Nomer Telepon Baru : ");
+                            String noTelp = input.nextLine();
+                            User.mahasiswa.updateNotelp(npm, noTelp);
+                            break;
+                        case 3:
+                            System.err.println("Masukkan NPM Mahasiswa : ");
+                            npm = input.nextLine();
+                            User.jurusan.viewAllJurusan();
+                            System.out.print("Masukkan kode Jurusan Baru : ");
+                            int jurusan = input.nextInt();
+                            User.mahasiswa.updateJurusan(npm, jurusan);
+                            break;
+                    
+                        case 4:
+                            System.err.println("Kembali");
+                            break;
+                    
+                        default:
+                            System.out.println("Invalid choice. Please try again.");
+                            break;
+                    }
+                } while (n!=4);
                     break;
                 case 2:
+                    input.nextLine();
                     System.out.println("Hapus Data Mahasiswa");
                     System.out.print("Masukkan nama Mahasiswa : ");
                     String nama = input.nextLine();
@@ -227,7 +262,8 @@ public class Dashboard {
                     User.mahasiswa.viewAllMahasiswa();
                     break;
                 case 4:
-                    System.out.print("Masukkan NPM Yang Ingin Dilihat : ");
+                    input.nextLine();
+                    System.out.print("Masukkan NPM Mahasiswa Yang Ingin Dilihat : ");
                     npm = input.nextLine();
                     User.mahasiswa.viewMahasiswaByNpm(npm);
                     break;
@@ -247,7 +283,7 @@ public class Dashboard {
             input.nextLine();
             System.out.println("MENU MANAGE JURUSAN");
             System.out.println("1. Tambah Jurusan");
-            System.out.println("2. Update Jurusan");
+            System.out.println("2. Ubah Fakultas");
             System.out.println("3. Hapus Jurusan");
             System.out.println("4. View All Jurusan");
             System.out.println("5. Kembali");
@@ -268,14 +304,15 @@ public class Dashboard {
                     System.out.print("Update Jurusan");
                     System.out.print("Masukkan Nama Jurusan : ");
                     namaJurusan = input.nextLine();
-                    System.out.print("Masukkan Fakultas Jurusan : ");
+                    System.out.print("Masukkan Fakultas baru : ");
                     fakultasJurusan = input.nextLine();
                     User.jurusan.updateJurusan(namaJurusan, fakultasJurusan);
                     break;
                 case 3:
+                    input.nextLine();
                     User.jurusan.viewAllJurusan();
-                    System.out.print("Masukkan Jurusan yang ingin dihapus : ");
-                    String jurusan = input.nextLine();
+                    System.out.print("Masukkan kode Jurusan yang ingin dihapus : ");
+                    int jurusan = input.nextInt();
                     User.jurusan.deleteJurusan(jurusan);
                     break;
                 case 4:
@@ -325,7 +362,7 @@ public class Dashboard {
                             
                             break;
                         case 2:
-                        input.nextLine();
+                            input.nextLine();
                             System.out.println("Masukkan Username Admin : ");
                             username = input.nextLine();
                             System.out.println("Masukkan Password Admin");
@@ -353,7 +390,7 @@ public class Dashboard {
                             
                             break;
                         case 2:
-                        input.nextLine();
+                            input.nextLine();
                             System.out.println("Masukkan Username : ");
                             username = input.nextLine();
                             System.out.println("Masukkan Password : ");
@@ -404,7 +441,7 @@ public class Dashboard {
                         input.nextLine();
                             input.nextLine();
                             System.out.println("DATA USER SEKJUR");
-                            User.sekjur.view();
+                            User.sekjur.viewAllSekjur();
                             
                             break;
                         default:

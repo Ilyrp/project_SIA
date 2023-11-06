@@ -15,9 +15,10 @@ public class ModelPembayaran {
         ModelPembayaran.pembayaran.add(new NodePembayaran(mahasiswa, kasir, time)); 
     }
     
-    public void viewAllPembayaran(String npm){
+    public void viewAllPembayaran(){
         for (int i = 0; i<pembayaran.size();i++){
                 pembayaran.get(i).view();
+                System.out.println("--------------------");
             }
         }
     }

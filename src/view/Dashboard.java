@@ -8,9 +8,9 @@ import node.NodeJurusan;
 import node.NodeMahasiswa;
 
 public class Dashboard {
+    static LocalDate time = LocalDate.now();
     public static void menuAdmin() {
         Scanner input = new Scanner(System.in);
-        LocalDate time = LocalDate.now();
         int pilih;
 
         do {
@@ -26,32 +26,7 @@ public class Dashboard {
 
             switch (pilih) {
                 case 1:
-                    input.nextLine();
-                    System.out.println("FORM PENDAFTARAN");
-                    System.out.println("Tanggal Pendaftaran : "+time);
-                    System.out.print("Masukkan Nama Pendaftar : ");
-                    String namaPendaftar = input.nextLine();
-                    // input.nextLine();
-                    User.jurusan.viewAllJurusan();
-                    System.out.print("Masukkan Jurusan : ");
-                    int jur= input.nextInt();
-                    NodeJurusan j = User.jurusan.searchJurusan(jur);
-                    
-                    // selector
-                    input.nextLine();
-                    System.out.print("Masukkan alamat : ");
-                    String alamat = input.nextLine();
-                    System.out.print("Masukkan Nomer Telepon : ");
-                    String noTelepon = input.nextLine();
-                    // input.nextLine();
-                    System.out.println("WALI MAHASISWA");
-                    System.out.print("Masukkan Nama Wali : ");
-                    String namaWali = input.nextLine();
-                    System.out.print("Masukkan alamat Wali : ");
-                    String alamatWali = input.nextLine();
-                    System.out.print("Masukkan Nomer Telepon Wali : ");
-                    String noTelponWali = input.nextLine();
-                    User.mahasiswa.insertMahasiswa(namaPendaftar, alamat, noTelepon,namaWali,alamatWali,noTelponWali,j);
+                    form(input);
                     break;
                 case 2:
                     manageDosen(input);
@@ -63,16 +38,7 @@ public class Dashboard {
                     manageJurusan(input);
                     break;
                 case 5:
-                    System.out.println("Menu Pembayaran:");
-                    input.nextLine();
-                    System.out.println("Masukkan nama Mahasiswa : ");
-                    String nama = input.nextLine();
-                    System.out.println("Masukkan Kasir : ");
-                    String kasir = input.nextLine();
-                    System.out.println("Tanggal Bayar : "+time);
-                    NodeMahasiswa mhs = User.mahasiswa.searchMahasiswa(nama);
-                    User.mahasiswa.updateNpm(nama);
-                    User.pembayaran.insertPembayaran(time,mhs, kasir);
+                    managePembayaran(input);
                     break;
                 case 6:
                     System.out.println("Logging out...");
@@ -120,7 +86,34 @@ public class Dashboard {
 
 
 
-
+    public static void form(Scanner input){
+        input.nextLine();
+        System.out.println("FORM PENDAFTARAN");
+        System.out.println("Tanggal Pendaftaran : "+time);
+        System.out.print("Masukkan Nama Pendaftar : ");
+        String namaPendaftar = input.nextLine();
+        // input.nextLine();
+        User.jurusan.viewAllJurusan();
+        System.out.print("Masukkan Jurusan : ");
+        int jur= input.nextInt();
+        NodeJurusan j = User.jurusan.searchJurusan(jur);
+        
+        // selector
+        input.nextLine();
+        System.out.print("Masukkan alamat : ");
+        String alamat = input.nextLine();
+        System.out.print("Masukkan Nomer Telepon : ");
+        String noTelepon = input.nextLine();
+        // input.nextLine();
+        System.out.println("WALI MAHASISWA");
+        System.out.print("Masukkan Nama Wali : ");
+        String namaWali = input.nextLine();
+        System.out.print("Masukkan alamat Wali : ");
+        String alamatWali = input.nextLine();
+        System.out.print("Masukkan Nomer Telepon Wali : ");
+        String noTelponWali = input.nextLine();
+        User.mahasiswa.insertMahasiswa(namaPendaftar, alamat, noTelepon,namaWali,alamatWali,noTelponWali,j);
+    }
 
     public static void manageDosen(Scanner input) {
         int pilih;
@@ -327,7 +320,41 @@ public class Dashboard {
         } while (pilih != 5);
     }
 
-    
+    public static void managePembayaran(Scanner input){
+        int pilih;
+        do {
+            System.out.println("Menu Manage Pembayaran");
+            System.out.println("1. Pembayaran");
+            System.out.println("2. Lihat data pembayaran");
+            System.out.println("3.Kembali");
+            System.out.println("Menu Pembayaran:");
+            pilih = input.nextInt();
+            switch (pilih) {
+                case 1:
+                    input.nextLine();
+                    System.out.println("Masukkan nama Mahasiswa : ");
+                    String nama = input.nextLine();
+                    System.out.println("Masukkan Kasir : ");
+                    String kasir = input.nextLine();
+                    System.out.println("Tanggal Bayar : "+time);
+                    NodeMahasiswa mhs = User.mahasiswa.searchMahasiswa(nama);
+                    User.mahasiswa.updateNpm(nama);
+                    User.pembayaran.insertPembayaran(time,mhs, kasir);
+                    break;
+                case 2:
+                    System.out.println("DATA PEMBAYARAN");
+                    User.pembayaran.viewAllPembayaran();
+                    break;
+                case 3:
+                    System.out.println("Kembali");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+                    break;
+            }
+        } while (pilih != 3);
+        
+    }
 
     
     public static void manageUser(){
